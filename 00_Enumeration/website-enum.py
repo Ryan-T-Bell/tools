@@ -16,13 +16,13 @@ def array_builder(ip, ports, extension):
 	for port in ports:
 
 		# File Enumeration
-		cmds.append("wfuzz -c -z file,/usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-files.txt --hc 404 {}:{}/FUZZ".format(ip, port))
+		cmds.append("wfuzz -c -z file,/usr/share/wordlists/seclists/Discovery/Web-Content/raft-large-files.txt --hc 404 {}:{}/FUZZ".format(ip, port))
 		
 		# Directory Enumeration
-		cmds.append("wfuzz -c -z file,/usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-directories.txt --hc 404 {}:{}/FUZZ/".format(ip, port))
+		cmds.append("wfuzz -c -z file,/usr/share/wordlists/seclists/Discovery/Web-Content/raft-large-directories.txt --hc 404 {}:{}/FUZZ/".format(ip, port))
 		
 		# Extensions
-		cmds.append("wfuzz -c -z file,/usr/share/wordlists/SecLists/Discovery/Web-Content/raft-medium-words.txt --hc 404 {}:{}/FUZZ.{}".format(ip, port, extension))
+		cmds.append("wfuzz -c -z file,/usr/share/wordlists/seclists/Discovery/Web-Content/raft-medium-words.txt --hc 404 {}:{}/FUZZ.{}".format(ip, port, extension))
 
 	return cmds
 
